@@ -1,0 +1,42 @@
+-- This is the first query:
+
+SELECT *
+FROM transaction_data
+LIMIT 10;
+
+-- Fraudulent Activity Based on Zip Code 20252
+
+SELECT full_name, email, zip
+FROM transaction_data
+WHERE zip = 20252;
+
+-- Looking for Fraudseter with name of Art Vandelay 
+-- or with middle name 'der'
+
+SELECT full_name, email
+FROM transaction_data
+WHERE full_name = 'Art Vandelay'
+   OR full_name LIKE '% der %';
+
+
+-- Looking for Irregularities based on 10. IP address
+SELECT ip_address, email
+FROM transaction_data
+WHERE ip_address LIKE '%10.%';
+
+-- Looking for temporary emails address temp_email.com
+
+SELECT email
+FROM transaction_data
+WHERE email LIKE '%temp_email.com%';
+
+-- Looing for a specific transaction by the name of John
+-- and starting with IP address of 120.
+
+SELECT full_name, ip_address
+FROM transaction_data
+WHERE full_name LIKE 'John%'
+  AND ip_address LIKE '120%';
+
+
+  
